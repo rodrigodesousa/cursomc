@@ -30,16 +30,21 @@ import com.rodrigosousa.cursomc.repositories.ItemPedidoRepository;
 import com.rodrigosousa.cursomc.repositories.PagamentoRepository;
 import com.rodrigosousa.cursomc.repositories.PedidoRepository;
 import com.rodrigosousa.cursomc.repositories.ProdutoRepository;
+import com.rodrigosousa.cursomc.services.S3Service;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner {
+	
+	@Autowired
+	private S3Service s3service;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
 	}
 
 	@Override
-	public void run(String... args) throws Exception {		
+	public void run(String... args) throws Exception {
+		s3service.uploadFile("C:\\Users\\rodrigo\\Downloads\\20210215_172126.jpg");
 	}
 
 }
